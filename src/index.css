@@ -1,0 +1,400 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.bff-root {
+    --bff-font-body: 'Poppins', system-ui, sans-serif;
+    --bff-font-display: 'Poppins', system-ui, sans-serif;
+
+    --bff-ink: #1e2a32;
+    --bff-muted: #5b6b73;
+    --bff-surface: #ffffff;
+    --bff-surface-sunken: #f6f4ef;
+    --bff-border: rgba(30, 42, 50, 0.12);
+
+    --bff-accent: #FBB040;
+    --bff-accent-contrast: #ffffff;
+
+    --bff-you-fill: #FBB040;
+    --bff-you-fill-opacity: 0.32;
+    --bff-you-stroke: #FBB040;
+    --bff-match-stroke: #5B92BF;
+    --bff-grid-line: rgba(30, 42, 50, 0.14);
+
+    --bff-radius-card: 20px;
+    --bff-radius-control: 999px;
+    --bff-max-width: 8w;
+
+    max-width: var(--bff-max-width);
+    margin: 0 auto;
+    font-family: var(--bff-font-body);
+    color: var(--bff-ink);
+}
+
+.bff-root * {
+    box-sizing: border-box;
+}
+
+.bff-eyebrow {
+    margin: 0 0 6px;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--bff-accent);
+}
+
+.bff-title {
+    margin: 0 0 8px;
+    font-family: var(--bff-font-display);
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.bff-sub {
+    margin: 0 0 20px;
+    color: var(--bff-muted);
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.bff-card {
+    background: var(--bff-surface);
+    border: 1px solid var(--bff-border);
+    border-radius: var(--bff-radius-card);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 80vh;
+}
+
+/* ── Progress dots ─────────────────────────────────────────── */
+
+.bff-progress {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 16px;
+}
+
+.bff-dot {
+    flex: 1;
+    height: 4px;
+    border-radius: 999px;
+    background: var(--bff-border);
+}
+
+.bff-dot.is-done {
+    background: var(--bff-match-stroke);
+}
+
+.bff-dot.is-current {
+    background: var(--bff-accent);
+}
+
+/* ── Buttons ───────────────────────────────────────────────── */
+
+.bff-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.bff-actions--end {
+    justify-content: flex-end;
+}
+
+.bff-actions--retake {
+    margin-top: 20px;
+}
+
+.bff-primary-btn {
+    appearance: none;
+    border: none;
+    border-radius: var(--bff-radius-control);
+    background: var(--bff-accent);
+    color: var(--bff-accent-contrast);
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 12px 24px;
+    cursor: pointer;
+    transition: opacity 0.15s ease, transform 0.1s ease, scale 0.1s ease;
+}
+
+.bff-primary-btn:hover:not(:disabled) {
+    opacity: 0.85;
+    scale: 1.05;
+}
+
+.bff-primary-btn:active:not(:disabled) {
+    transform: scale(0.98);
+}
+
+.bff-primary-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.bff-primary-btn:focus-visible,
+.bff-link-btn:focus-visible,
+.bff-opt:focus-visible,
+.bff-runner-link:focus-visible {
+    outline: 2px solid var(--bff-accent);
+    outline-offset: 2px;
+}
+
+.bff-link-btn {
+    appearance: none;
+    border: none;
+    background: none;
+    color: var(--bff-muted);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 8px 0;
+}
+
+.bff-link-btn:hover {
+    color: var(--bff-ink);
+}
+
+/* ── Question step ─────────────────────────────────────────── */
+
+.bff-q {
+    margin: 0 0 18px;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.bff-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+}
+
+.bff-opt {
+    appearance: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 10px;
+    border: 1.5px solid var(--bff-border);
+    border-radius: 14px;
+    background: var(--bff-surface-sunken);
+    color: var(--bff-ink);
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.bff-opt:hover {
+    border-color: var(--bff-accent);
+}
+
+.bff-opt.is-picked {
+    border-color: var(--bff-accent);
+    background: color-mix(in srgb, var(--bff-accent) 10%, var(--bff-surface));
+}
+
+.bff-icon {
+    width: 26px;
+    height: 26px;
+    color: var(--bff-ink);
+}
+
+.bff-opt.is-picked .bff-icon {
+    color: var(--bff-accent);
+}
+
+/* ── Result step ───────────────────────────────────────────── */
+
+.bff-result-grid {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 32px;
+}
+
+@media (max-width: 640px) {
+    .bff-result-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.bff-radar-wrap {
+    position: relative;
+}
+
+.bff-radar-svg {
+    width: 100%;
+    height: auto;
+    touch-action: none;
+}
+
+.bff-radar-grid {
+    fill: none;
+    stroke: var(--bff-grid-line);
+    stroke-width: 1;
+}
+
+.bff-radar-spoke {
+    stroke: var(--bff-grid-line);
+    stroke-width: 1;
+}
+
+.bff-radar-match {
+    fill: none;
+    stroke: var(--bff-match-stroke);
+    stroke-width: 2;
+    stroke-dasharray: 5 4;
+}
+
+.bff-radar-you {
+    fill: var(--bff-you-fill);
+    fill-opacity: var(--bff-you-fill-opacity);
+    stroke: var(--bff-you-stroke);
+    stroke-width: 2.5;
+}
+
+.bff-axis-label {
+    font-size: 12px;
+    font-weight: 700;
+    fill: var(--bff-ink);
+    font-family: var(--bff-font-body);
+}
+
+.bff-axis-hit {
+    cursor: help;
+}
+
+.bff-handle {
+    fill: var(--bff-you-stroke);
+    stroke: var(--bff-surface);
+    stroke-width: 2;
+    cursor: grab;
+}
+
+.bff-handle:active {
+    cursor: grabbing;
+}
+
+.bff-hint {
+    margin: 10px 0 0;
+    font-size: 12px;
+    color: var(--bff-muted);
+}
+
+.bff-legend {
+    display: flex;
+    gap: 16px;
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--bff-muted);
+}
+
+.bff-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.bff-legend-swatch {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+}
+
+.bff-legend-swatch--you {
+    background: var(--bff-you-stroke);
+}
+
+.bff-legend-swatch--match {
+    background: var(--bff-match-stroke);
+}
+
+.bff-match-name {
+    margin: 4px 0 8px;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.bff-match-blurb {
+    margin: 0 0 18px;
+    color: var(--bff-muted);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.bff-runners {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--bff-border);
+}
+
+.bff-runners-label {
+    margin: 0 0 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--bff-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.bff-runner-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    font-size: 14px;
+}
+
+.bff-runner-link {
+    appearance: none;
+    border: none;
+    background: none;
+    color: var(--bff-accent);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+}
+
+/* ── Tooltip ───────────────────────────────────────────────── */
+
+.bff-tooltip {
+    position: absolute;
+    pointer-events: none;
+    background: var(--bff-ink);
+    color: var(--bff-surface);
+    font-size: 12px;
+    line-height: 1.4;
+    padding: 6px 10px;
+    border-radius: 8px;
+    max-width: 200px;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.1s ease;
+}
+
+.bff-tooltip.is-visible {
+    opacity: 1;
+}

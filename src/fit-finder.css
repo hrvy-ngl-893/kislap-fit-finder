@@ -1,0 +1,14 @@
+/*
+ * Fit Finder styles
+ * ─────────────────
+ * Every color, radius, and spacing value used below is defined as a CSS
+ * custom property on `.bff-root`. To restyle the whole widget, override
+ * these variables on your own wrapper — no need to touch class rules.
+ *
+ *   .bff-root {
+ *     --bff-accent: #2A5C4E;
+ *     --bff-you-stroke: #2A5C4E;
+ *     ...
+ *   }
+ */
+
