@@ -35,7 +35,7 @@ export function QuestionStep({
     return (
         <>
             <p className="bff-eyebrow">
-                Fit Finder — Question {questionIndex + 1} of {totalQuestions}
+                Kislap the Label - Fit Finder — Question {questionIndex + 1} of {totalQuestions}
             </p>
             <ProgressDots total={totalQuestions} currentStep={questionIndex} />
             <div className="bff-card">

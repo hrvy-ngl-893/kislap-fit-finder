@@ -12,6 +12,69 @@ code {
     monospace;
 }
 
+/* Container for the side-by-side match layout */
+.bff-match-card {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: flex-start;
+    margin-top: 12px;
+    margin-bottom: 24px;
+}
+
+/* Portrait Image container */
+.bff-match-image-wrap {
+    flex: 0 0 240px;
+    /* Fixed width for portrait image */
+    aspect-ratio: 3 / 4;
+    /* Maintains standard portrait proportions */
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #f4f4f4;
+}
+
+.bff-match-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* Text details column */
+.bff-match-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.bff-match-name {
+    margin: 0 0 8px 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.bff-match-blurb {
+    margin: 0 0 16px 0;
+    line-height: 1.5;
+    font-size: 0.95rem;
+    color: #4a4a4a;
+}
+
+/* Responsive adjustment for small mobile screens */
+@media (max-width: 480px) {
+    .bff-match-card {
+        flex-direction: column;
+    }
+
+    .bff-match-image-wrap {
+        width: 100%;
+        max-width: 300px;
+        flex: none;
+    }
+}
+
 .bff-root {
     --bff-font-body: 'Poppins', system-ui, sans-serif;
     --bff-font-display: 'Poppins', system-ui, sans-serif;

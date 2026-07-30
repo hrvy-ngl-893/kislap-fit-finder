@@ -17,9 +17,9 @@ import { ProgressDots } from './ProgressDots';
  */
 export function IntroStep({
     onStart,
-    eyebrow = 'Fit Finder',
+    eyebrow = 'Kislap the Label - Fit Finder',
     title = 'Find the best piece just for you',
-    subtitle = "Answer a few style questions and we'll map your preferences to the styles you're most likely to love.",
+    subtitle = "Answer a few style questions and we'll map your preferences to the styles you're most likely to love. Kislap the Label does not track and store any input you make on this page.",
     startLabel = 'Start',
 }) {
     return (
@@ -28,7 +28,7 @@ export function IntroStep({
             <ProgressDots total={1} currentStep={1} />
             <div className="bff-card">
                 <div>            
-                    <h2 className="bff-title">{title}</h2>
+                    <h3 className="bff-title">{title}</h3>
                     <p className="bff-sub">{subtitle}</p></div>
                 <div className="bff-actions bff-actions--end">
                     <button type="button" className="bff-primary-btn" onClick={onStart}>

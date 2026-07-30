@@ -38,96 +38,96 @@ export const QUESTIONS = [
             { label: 'Meeting friends for a lively afternoon that turns into the evening.', icon: 'cheers', deltas: { joy: 2, heritage: 1 } },
         ],
     },
-    {
-        id: 'q2-quality',
-        prompt: 'Which quality do you admire most?',
-        options: [
-            { label: 'Adaptability', icon: 'leaf', deltas: { freedom: 2, grace: 1 } },
-            { label: 'Grace', icon: 'feather', deltas: { grace: 2, heritage: 1 } },
-            { label: 'Integrity', icon: 'shield', deltas: { heritage: 2, freedom: 1 } },
-            { label: 'Joy', icon: 'sparkles', deltas: { joy: 2, grace: 1 } },
-        ],
-    },
-    {
-        id: 'q3-space',
-        prompt: 'Which space feels most like home?',
-        options: [
-            { label: 'Somewhere surrounded by greenery.', icon: 'plant', deltas: { freedom: 2, grace: 1 } },
-            { label: 'An airy room filled with sunlight.', icon: 'sun', deltas: { grace: 2, freedom: 1 } },
-            { label: 'A place filled with heirlooms and stories.', icon: 'clock', deltas: { heritage: 2, grace: 1 } },
-            { label: 'A colorful home that\'s always full of people.', icon: 'home', deltas: { joy: 2, grace: 1 } },
-        ],
-    },
-    {
-        id: 'q4-keepsake',
-        prompt: "Choose a keepsake you'd never throw away.",
-        options: [
-            { label: 'A pressed leaf from a memorable trip.', icon: 'maple', deltas: { freedom: 2, grace: 1, discovery: 1 } },
-            { label: 'A handwritten letter.', icon: 'mail', deltas: { grace: 2, heritage: 1 } },
-            { label: 'A family heirloom.', icon: 'gem', deltas: { heritage: 2, freedom: 1 } },
-            { label: 'Photos from celebrations with friends.', icon: 'camera', deltas: { joy: 2, grace: 1 } },
-        ],
-    },
-    {
-        id: 'q5-inspiration',
-        prompt: 'What inspires you most?',
-        options: [
-            { label: 'Nature.', icon: 'trees', deltas: { freedom: 2 } },
-            { label: 'Everyday beauty.', icon: 'flower', deltas: { grace: 2 } },
-            { label: 'History and craftsmanship.', icon: 'scroll', deltas: { heritage: 2 } },
-            { label: 'Community and shared experiences.', icon: 'people', deltas: { joy: 2 } },
-        ],
-    },
-    {
-        id: 'q6-getaway',
-        prompt: 'Your ideal getaway would be...',
-        options: [
-            { label: 'A place where you can explore, wander, and discover something new.', icon: 'globe', deltas: { freedom: 2, joy: 1, discovery: 2 } },
-            { label: 'Somewhere slow-paced where you can relax and enjoy the little moments.', icon: 'coffee', deltas: { grace: 2, freedom: 1 } },
-            { label: 'A place where you can learn about stories, culture, and history.', icon: 'landmark', deltas: { heritage: 2, grace: 1 } },
-            { label: 'Somewhere full of energy, people, and unforgettable experiences.', icon: 'fireworks', deltas: { joy: 2, heritage: 1, discovery: 1 } },
-        ],
-    },
-    {
-        id: 'q7-style',
-        prompt: 'Your style is usually...',
-        options: [
-            { label: 'Effortless.', icon: 'wind', deltas: { freedom: 2, grace: 1 } },
-            { label: 'Refined.', icon: 'diamond', deltas: { grace: 2, heritage: 1 } },
-            { label: 'Timeless.', icon: 'hourglass', deltas: { heritage: 2, freedom: 1 } },
-            { label: 'Expressive.', icon: 'palette', deltas: { joy: 2, grace: 1 } },
-        ],
-    },
-    {
-        id: 'q8-feeling',
-        prompt: 'Which feeling are you always chasing?',
-        options: [
-            { label: 'Freedom.', icon: 'leaf', deltas: { freedom: 2 } },
-            { label: 'Ease.', icon: 'cloud', deltas: { grace: 2 } },
-            { label: 'Connection.', icon: 'heart', deltas: { heritage: 2 } },
-            { label: 'Excitement.', icon: 'zap', deltas: { joy: 2 } },
-        ],
-    },
-    {
-        id: 'q9-pieces',
-        prompt: 'What kind of pieces do you find yourself drawn to?',
-        options: [
-            { label: 'Something that feels natural and easy to move in.', icon: 'shirt', deltas: { freedom: 2, grace: 1 } },
-            { label: 'Something delicate with thoughtful details.', icon: 'sparkle', deltas: { grace: 2, heritage: 1 } },
-            { label: 'Something with history and meaning behind it.', icon: 'ribbon', deltas: { heritage: 2, freedom: 1 } },
-            { label: 'Something that instantly brings energy into a room.', icon: 'star', deltas: { joy: 2, grace: 1 } },
-        ],
-    },
-    {
-        id: 'q10-daily-carry',
-        prompt: 'Which feeling would you want to carry with you every day?',
-        options: [
-            { label: 'Possibility.', icon: 'sun', deltas: { freedom: 3, discovery: 2 } },
-            { label: 'Serenity.', icon: 'drop', deltas: { grace: 3 } },
-            { label: 'Belonging.', icon: 'people', deltas: { heritage: 3 } },
-            { label: 'Wonder.', icon: 'magic', deltas: { joy: 3, discovery: 1 } },
-        ],
-    },
+    // {
+    //     id: 'q2-quality',
+    //     prompt: 'Which quality do you admire most?',
+    //     options: [
+    //         { label: 'Adaptability', icon: 'leaf', deltas: { freedom: 2, grace: 1 } },
+    //         { label: 'Grace', icon: 'feather', deltas: { grace: 2, heritage: 1 } },
+    //         { label: 'Integrity', icon: 'shield', deltas: { heritage: 2, freedom: 1 } },
+    //         { label: 'Joy', icon: 'sparkles', deltas: { joy: 2, grace: 1 } },
+    //     ],
+    // },
+    // {
+    //     id: 'q3-space',
+    //     prompt: 'Which space feels most like home?',
+    //     options: [
+    //         { label: 'Somewhere surrounded by greenery.', icon: 'plant', deltas: { freedom: 2, grace: 1 } },
+    //         { label: 'An airy room filled with sunlight.', icon: 'sun', deltas: { grace: 2, freedom: 1 } },
+    //         { label: 'A place filled with heirlooms and stories.', icon: 'clock', deltas: { heritage: 2, grace: 1 } },
+    //         { label: 'A colorful home that\'s always full of people.', icon: 'home', deltas: { joy: 2, grace: 1 } },
+    //     ],
+    // },
+    // {
+    //     id: 'q4-keepsake',
+    //     prompt: "Choose a keepsake you'd never throw away.",
+    //     options: [
+    //         { label: 'A pressed leaf from a memorable trip.', icon: 'maple', deltas: { freedom: 2, grace: 1, discovery: 1 } },
+    //         { label: 'A handwritten letter.', icon: 'mail', deltas: { grace: 2, heritage: 1 } },
+    //         { label: 'A family heirloom.', icon: 'gem', deltas: { heritage: 2, freedom: 1 } },
+    //         { label: 'Photos from celebrations with friends.', icon: 'camera', deltas: { joy: 2, grace: 1 } },
+    //     ],
+    // },
+    // {
+    //     id: 'q5-inspiration',
+    //     prompt: 'What inspires you most?',
+    //     options: [
+    //         { label: 'Nature.', icon: 'trees', deltas: { freedom: 2 } },
+    //         { label: 'Everyday beauty.', icon: 'flower', deltas: { grace: 2 } },
+    //         { label: 'History and craftsmanship.', icon: 'scroll', deltas: { heritage: 2 } },
+    //         { label: 'Community and shared experiences.', icon: 'people', deltas: { joy: 2 } },
+    //     ],
+    // },
+    // {
+    //     id: 'q6-getaway',
+    //     prompt: 'Your ideal getaway would be...',
+    //     options: [
+    //         { label: 'A place where you can explore, wander, and discover something new.', icon: 'globe', deltas: { freedom: 2, joy: 1, discovery: 2 } },
+    //         { label: 'Somewhere slow-paced where you can relax and enjoy the little moments.', icon: 'coffee', deltas: { grace: 2, freedom: 1 } },
+    //         { label: 'A place where you can learn about stories, culture, and history.', icon: 'landmark', deltas: { heritage: 2, grace: 1 } },
+    //         { label: 'Somewhere full of energy, people, and unforgettable experiences.', icon: 'fireworks', deltas: { joy: 2, heritage: 1, discovery: 1 } },
+    //     ],
+    // },
+    // {
+    //     id: 'q7-style',
+    //     prompt: 'Your style is usually...',
+    //     options: [
+    //         { label: 'Effortless.', icon: 'wind', deltas: { freedom: 2, grace: 1 } },
+    //         { label: 'Refined.', icon: 'diamond', deltas: { grace: 2, heritage: 1 } },
+    //         { label: 'Timeless.', icon: 'hourglass', deltas: { heritage: 2, freedom: 1 } },
+    //         { label: 'Expressive.', icon: 'palette', deltas: { joy: 2, grace: 1 } },
+    //     ],
+    // },
+    // {
+    //     id: 'q8-feeling',
+    //     prompt: 'Which feeling are you always chasing?',
+    //     options: [
+    //         { label: 'Freedom.', icon: 'leaf', deltas: { freedom: 2 } },
+    //         { label: 'Ease.', icon: 'cloud', deltas: { grace: 2 } },
+    //         { label: 'Connection.', icon: 'heart', deltas: { heritage: 2 } },
+    //         { label: 'Excitement.', icon: 'zap', deltas: { joy: 2 } },
+    //     ],
+    // },
+    // {
+    //     id: 'q9-pieces',
+    //     prompt: 'What kind of pieces do you find yourself drawn to?',
+    //     options: [
+    //         { label: 'Something that feels natural and easy to move in.', icon: 'shirt', deltas: { freedom: 2, grace: 1 } },
+    //         { label: 'Something delicate with thoughtful details.', icon: 'sparkle', deltas: { grace: 2, heritage: 1 } },
+    //         { label: 'Something with history and meaning behind it.', icon: 'ribbon', deltas: { heritage: 2, freedom: 1 } },
+    //         { label: 'Something that instantly brings energy into a room.', icon: 'star', deltas: { joy: 2, grace: 1 } },
+    //     ],
+    // },
+    // {
+    //     id: 'q10-daily-carry',
+    //     prompt: 'Which feeling would you want to carry with you every day?',
+    //     options: [
+    //         { label: 'Possibility.', icon: 'sun', deltas: { freedom: 3, discovery: 2 } },
+    //         { label: 'Serenity.', icon: 'drop', deltas: { grace: 3 } },
+    //         { label: 'Belonging.', icon: 'people', deltas: { heritage: 3 } },
+    //         { label: 'Wonder.', icon: 'magic', deltas: { joy: 3, discovery: 1 } },
+    //     ],
+    // },
 ];
 
 // ── Product Catalog ────────────────────────────────────────────────────

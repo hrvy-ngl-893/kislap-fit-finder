@@ -70,7 +70,7 @@ export default function App() {
 
                     {product.handle && (
                         <a href={`${product.link}`} target="_blank" rel="noopener noreferrer" className="modal-cta">
-                            View This Style
+                            Learn more
                         </a>
                     )}
                 </div>

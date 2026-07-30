@@ -52,7 +52,7 @@ export function ResultStep({ axes, products, initialVector, onRetake, onViewProd
 
     return (
         <>
-            <p className="bff-eyebrow">Your fit profile</p>
+            <p className="bff-eyebrow">Kislap the Label - Your Fit Profile</p>
             <ProgressDots total={10} currentStep={10} />
             <div className="bff-card">
                 <div>
@@ -73,20 +73,44 @@ export function ResultStep({ axes, products, initialVector, onRetake, onViewProd
                             </span>
                         </div>
                     </div>
-                    <div>
+                    <div className="bff-result-hero">
                         <p className="bff-eyebrow">Best match</p>
-                        <h3 className="bff-match-name">{top.product.name}</h3>
-                        <p className="bff-match-blurb">{top.product.blurb}</p>
-                        <button type="button" className="bff-primary-btn" onClick={() => handleView(top.product)}>
-                            View this style →
-                        </button>
+
+                        <div className="bff-match-card">
+                            {top.product.image && (
+                                <div className="bff-match-image-wrap">
+                                    <img
+                                        src={top.product.image}
+                                        alt={top.product.name}
+                                        className="bff-match-image"
+                                    />
+                                </div>
+                            )}
+
+                            <div className="bff-match-info">
+                                <h3 className="bff-match-name">{top.product.name}</h3>
+                                <p className="bff-match-blurb">{top.product.blurb}</p>
+                                <button
+                                    type="button"
+                                    className="bff-primary-btn"
+                                    onClick={() => handleView(top.product)}
+                                >
+                                    View this style →
+                                </button>
+                            </div>
+                        </div>
+
                         <div className="bff-runners">
                             <p className="bff-runners-label">Also worth a look</p>
                             <div>
                                 {runnersUp.map((r) => (
                                     <div key={r.product.handle} className="bff-runner-row">
                                         <span>{r.product.name}</span>
-                                        <button type="button" className="bff-runner-link" onClick={() => handleView(r.product)}>
+                                        <button
+                                            type="button"
+                                            className="bff-runner-link"
+                                            onClick={() => handleView(r.product)}
+                                        >
                                             View →
                                         </button>
                                     </div>
