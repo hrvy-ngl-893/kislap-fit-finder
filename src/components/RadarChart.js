@@ -54,7 +54,7 @@ export function RadarChart({
 
     const cx = size / 2;
     const cy = size / 2;
-    const r = radius ?? size * 0.3;
+    const r = radius ?? size * 0.25;
 
     const showTooltip = useCallback((text, clientX, clientY) => {
         const wrap = svgRef.current?.parentElement;

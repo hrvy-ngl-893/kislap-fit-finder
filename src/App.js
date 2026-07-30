@@ -1,11 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BikiniFitFinder } from './components/BikiniFitFinder';
 
-/**
- * Minimal usage example. Wrap the finder in an element that overrides the
- * CSS variables to retheme it — no component code needs to change.
- */
 export default function App() {
+    const [selectedProduct, setSelectedProduct] = useState(null);
+
     return (
         <div
             style={{
@@ -18,10 +16,65 @@ export default function App() {
         >
             <BikiniFitFinder
                 onViewProduct={(product) => {
-                    // Swap this for your router/navigation of choice.
-                    console.log('navigate to', product.handle);
+                    setSelectedProduct(product);
                 }}
             />
+
+            {selectedProduct && (
+                <ProductModal
+                    product={selectedProduct}
+                    onClose={() => setSelectedProduct(null)}
+                />
+            )}
+        </div>
+    );
+}
+
+/**
+ * Modal to display details of the selected bikini product/design.
+ */export function ProductModal({ product, onClose }) {
+    if (!product) return null;
+
+    const descriptionText = product.blurb || product.description;
+    const titleText = product.name || product.title;
+
+    return (
+        <div className="modal-overlay" onClick={onClose}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                <div className="modal-body">
+                    {product.image && (
+                        <div className="modal-image-wrap">
+                            <img
+                                src={product.image}
+                                alt={titleText}
+                                className="modal-image"
+                            />
+                        </div>
+                    )}
+
+                    <h2>{titleText}</h2>
+
+                    {product.collection && (
+                        <p className="modal-collection">{product.collection}</p>
+                    )}
+
+                    {descriptionText && (
+                        <p className="modal-description">{descriptionText}</p>
+                    )}
+                </div>
+
+                <div className="modal-actions">
+                    <button type="button" className="modal-btn-secondary" onClick={onClose}>
+                        Close
+                    </button>
+
+                    {product.handle && (
+                        <a href={`${product.link}`} target="_blank" rel="noopener noreferrer" className="modal-cta">
+                            View This Style
+                        </a>
+                    )}
+                </div>
+            </div>
         </div>
     );
 }

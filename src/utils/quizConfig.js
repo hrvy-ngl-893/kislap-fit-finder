@@ -134,33 +134,42 @@ export const QUESTIONS = [
 // Real product archetypes mapping vectors to match radar target points.
 
 /** @type {FitFinderConfig['products']} */
+// src/utils/quizConfig.js
+
 export const PRODUCTS = [
     {
         name: 'Bambusa',
         handle: 'bambusa',
-        blurb: "You gravitate toward stories of resilience, growth, and embracing change. You appreciate pieces that feel grounded yet adventurous, finding beauty in nature and in life's constant movement.",
+        image: '/bambusa.jpg',
+        blurb: "You gravitate toward stories of resilience, growth, and embracing change...",
         vector: { freedom: 9, grace: 6, heritage: 4, joy: 5, discovery: 8 },
+        link: "https://kislapthelabel.com/products/bambusa",
     },
     {
         name: 'Jasmin Ilaya',
         handle: 'jasmin-ilaya',
-        blurb: "You're drawn to stories that embrace warmth, refinement, and effortless beauty. You appreciate thoughtful details and believe elegance is often found in simplicity.",
+        image: '/jasminilaya.jpg',
+        blurb: "You're drawn to stories that embrace warmth, refinement, and effortless beauty...",
         vector: { freedom: 5, grace: 9, heritage: 6, joy: 4, discovery: 4 },
+        link: "https://kislapthelabel.com/products/jasmin-ilaya",
     },
     {
         name: 'Dos Paños',
         handle: 'dos-panos',
-        blurb: "You connect most with stories rooted in heritage. Craftsmanship, tradition, and timeless design speak to you, and you're naturally drawn to pieces that carry history forward.",
+        image: '/dospanos.jpg',
+        blurb: "You connect most with stories rooted in heritage...",
         vector: { freedom: 4, grace: 6, heritage: 9, joy: 4, discovery: 5 },
+        link: "https://kislapthelabel.com/products/dos-panos",
     },
     {
         name: 'Banderitas',
         handle: 'banderitas',
-        blurb: 'You find meaning in celebration, connection, and shared experiences. You\'re drawn to vibrant moments, joyful traditions, and pieces that remind you life is best experienced together.',
+        image: '/bandaritas.jpg', // matching the exact filename from your ls output
+        blurb: "You find meaning in celebration, connection, and shared experiences...",
         vector: { freedom: 6, grace: 5, heritage: 5, joy: 9, discovery: 7 },
+        link: "https://kislapthelabel.com/products/banderitas",
     },
 ];
-
 /** @type {FitFinderConfig} */
 export const FIT_FINDER_CONFIG = {
     axes: AXES,
