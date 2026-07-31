@@ -34,7 +34,7 @@ import { ResultStep } from './ResultStep';
 /**
  * Top-level fit-finder quiz. Renders one of three steps (intro, a question,
  * or the result) based on internal state, and hands all styling to CSS
- * classes (see fit-finder.css) so consumers can restyle freely without
+ * classes (see index.css) so consumers can restyle freely without
  * touching this file.
  *
  * @param {BikiniFitFinderProps} props

@@ -22,26 +22,16 @@ import { ProgressDots } from './ProgressDots';
  * @param {ResultStepProps} props
  */
 export function ResultStep({ axes, products, initialVector, onRetake, onViewProduct }) {
-    // The visitor can keep fine-tuning after the quiz by dragging the chart,
-    // so the vector lives in local state seeded from the quiz result.
-    /** @type {[Vector, React.Dispatch<React.SetStateAction<Vector>>]} */
     const [vector, setVector] = useState(initialVector);
 
     const ranked = useMemo(() => rankProducts(axes, vector, products), [axes, vector, products]);
     const top = ranked[0];
     const runnersUp = ranked.slice(1, 3);
 
-    /**
-     * @param {string} axisKey
-     * @param {number} value
-     */
     function handleVectorChange(axisKey, value) {
         setVector((prev) => ({ ...prev, [axisKey]: value }));
     }
 
-    /**
-     * @param {Product} product
-     */
     function handleView(product) {
         if (onViewProduct) {
             onViewProduct(product);
@@ -52,63 +42,91 @@ export function ResultStep({ axes, products, initialVector, onRetake, onViewProd
 
     return (
         <>
-            <p className="bff-eyebrow">Kislap the Label - Your Fit Profile</p>
-            <ProgressDots total={10} currentStep={10} />
-            <div className="bff-card">
-                <div>
-                <h2 className="bff-title">Here's what fits your style</h2>
+            <div className="header">
+                <img
+                    src="/white-transaprent.png"
+                    alt="Results"
+                    className="logo-image"
+                />
+                <div className="header-center">
+                    <p className="bff-eyebrow-2">Fit Finder</p>
                 </div>
-                <div className="bff-result-grid">
-                    <div>
-                        <RadarChart axes={axes} vector={vector} matchVector={top.product.vector} onVectorChange={handleVectorChange} />
-                        <p className="bff-hint">Drag the dots to fine-tune · hover a label to see what it means</p>
-                        <div className="bff-legend">
-                            <span>
-                                <i className="bff-legend-swatch bff-legend-swatch--you" />
+            </div>
+            <ProgressDots total={10} currentStep={10} />
+
+            {/* Main Container */}
+            <div className="bff-card">
+                <div className="bff-header">
+                    <h3 className="bff-q">Here's what fits your style</h3>
+                </div>
+
+                <div className="res-layout">
+                    {/* Interactive Chart Section */}
+                    <div className="res-chart-pane">
+                        <div className="res-chart-wrapper">
+                            <RadarChart
+                                axes={axes}
+                                vector={vector}
+                                matchVector={top.product.vector}
+                                onVectorChange={handleVectorChange}
+                                size={338}
+                                radius={100}
+                            />
+                        </div>
+                        <p className="res-chart-guide">
+                            Drag the dots to fine-tune · hover a label to see what it means
+                        </p>
+                        <div className="res-chart-key">
+                            <span className="res-key-item">
+                                <i className="res-dot res-dot--user" />
                                 You
                             </span>
-                            <span>
-                                <i className="bff-legend-swatch bff-legend-swatch--match" />
+                            <span className="res-key-item">
+                                <i className="res-dot res-dot--match" />
                                 <span>{top.product.name}</span>
                             </span>
                         </div>
                     </div>
-                    <div className="bff-result-hero">
-                        <p className="bff-eyebrow">Best match</p>
 
-                        <div className="bff-match-card">
+                    {/* Results Showcase Section */}
+                    <div className="res-showcase-pane">
+                        <p className="res-badge">Best match</p>
+
+                        <div className="res-hero-product">
                             {top.product.image && (
-                                <div className="bff-match-image-wrap">
+                                <div className="res-product-media">
                                     <img
                                         src={top.product.image}
                                         alt={top.product.name}
-                                        className="bff-match-image"
+                                        className="res-product-img"
                                     />
                                 </div>
                             )}
 
-                            <div className="bff-match-info">
-                                <h3 className="bff-match-name">{top.product.name}</h3>
-                                <p className="bff-match-blurb">{top.product.blurb}</p>
-                                <button
-                                    type="button"
-                                    className="bff-primary-btn"
-                                    onClick={() => handleView(top.product)}
-                                >
-                                    View this style →
-                                </button>
+                            <div className="res-product-details">
+                                <div>
+                                    <h3 className="res-product-title">{top.product.name}</h3>
+                                    <p className="res-product-description">{top.product.blurb}</p>
+                                </div>
+                                <div>
+                                    <a href={top.product.link} target="_blank" rel="noreferrer">
+                                        <button className="bff-primary-btn">
+                                            Learn more →
+                                        </button>
+                                    </a>
+                                </div>
                             </div>
                         </div>
 
-                        <div className="bff-runners">
-                            <p className="bff-runners-label">Also worth a look</p>
-                            <div>
+                        <div className="res-alternatives">
+                            <p className="res-alternatives-title">Also worth a look</p>
+                            <div className="res-alternatives-list">
                                 {runnersUp.map((r) => (
-                                    <div key={r.product.handle} className="bff-runner-row">
-                                        <span>{r.product.name}</span>
+                                    <div key={r.product.handle} className="res-alt-item">
+                                        <span className="res-alt-name">{r.product.name}</span>
                                         <button
                                             type="button"
-                                            className="bff-runner-link"
+                                            className="res-alt-action"
                                             onClick={() => handleView(r.product)}
                                         >
                                             View →
@@ -119,7 +137,8 @@ export function ResultStep({ axes, products, initialVector, onRetake, onViewProd
                         </div>
                     </div>
                 </div>
-                <div className="bff-actions bff-actions--retake">
+
+                <div className="res-footer-actions">
                     <button type="button" className="bff-link-btn" onClick={onRetake}>
                         ↻ Retake the quiz
                     </button>

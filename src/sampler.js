@@ -11,7 +11,6 @@ export default function sampler(root) {
         trend: 'How current the style is, from timeless to trending right now.'
     };
 
-    // ---- small icon set (currentColor so CSS controls the tint) ----
     var ICONS = {
         minimal: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 9l6 5 6-5"/><path d="M12 14v6"/></svg>',
         balanced: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 10c3-4 13-4 16 0"/><path d="M6 10v6M18 10v6"/></svg>',

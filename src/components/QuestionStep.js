@@ -34,30 +34,42 @@ export function QuestionStep({
 }) {
     return (
         <>
-            <p className="bff-eyebrow">
-                Kislap the Label - Fit Finder — Question {questionIndex + 1} of {totalQuestions}
-            </p>
+            <div className="header">
+                <img
+                    src="/white-transaprent.png"
+                    alt="Questions"
+                    className="logo-image"
+                />
+                <div className="header-center">
+                    <p className="bff-eyebrow-2">Fit Finder</p>
+                </div>
+            </div>
             <ProgressDots total={totalQuestions} currentStep={questionIndex} />
             <div className="bff-card">
-                <div>
-                <h3 className="bff-q">{question.prompt}</h3>
-                <div className="bff-options">
-                    {question.options.map((option) => {
-                        const isPicked = selected === option;
-                        return (
-                            <button
-                                key={option.label}
-                                type="button"
-                                className={`bff-opt${isPicked ? ' is-picked' : ''}`}
-                                aria-pressed={isPicked}
-                                onClick={() => onSelect(option)}
-                            >
-                                <Icon name={option.icon} />
-                                <span>{option.label}</span>
-                            </button>
-                        );
-                    })}
-                </div>
+                <div className="bff-content">
+                    <h3 className="bff-q">{question.prompt}</h3>
+                    <div className="bff-options">
+                        {question.options.map((option) => {
+                            const isPicked = selected === option;
+                            return (
+                                <button
+                                    key={option.label}
+                                    type="button"
+                                    className={`bff-opt${isPicked ? ' is-picked' : ''}`}
+                                    style={{
+                                        '--bg-img': `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8)), url(${option.image})`
+                                    }}
+                                    aria-pressed={isPicked}
+                                    loading="eager"
+                                    fetchpriority="high"
+                                    onClick={() => onSelect(option)}
+                                >
+                                    <Icon name={option.icon} className="bff-opt-icon" />
+                                    <span className="q-opt">{option.label}</span>
+                                </button>
+                            );
+                        })}
+                    </div>
                 </div>
                 <div className="bff-actions">
                     {questionIndex > 0 ? (

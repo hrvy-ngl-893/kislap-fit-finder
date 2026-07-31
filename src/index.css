@@ -1,15 +1,18 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f3b826;
 }
 
+;
+
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
 }
 
 /* Container for the side-by-side match layout */
@@ -30,7 +33,7 @@ code {
     /* Maintains standard portrait proportions */
     border-radius: 10px;
     overflow: hidden;
-    background-color: #f4f4f4;
+    background-color: #FBB040;
 }
 
 .bff-match-image {
@@ -68,6 +71,8 @@ code {
         flex-direction: column;
     }
 
+
+
     .bff-match-image-wrap {
         width: 100%;
         max-width: 300px;
@@ -79,19 +84,23 @@ code {
     --bff-font-body: 'Poppins', system-ui, sans-serif;
     --bff-font-display: 'Poppins', system-ui, sans-serif;
 
-    --bff-ink: #1e2a32;
+    --bff-ink: #3e1e07;
     --bff-muted: #5b6b73;
-    --bff-surface: #ffffff;
-    --bff-surface-sunken: #f6f4ef;
-    --bff-border: rgba(30, 42, 50, 0.12);
+    --bff-muted-2: #491212;
+    --bff-surface: #f3b826;
+    --bff-surface-sunken: #f3b826;
+    --bff-border: #3d000e;
 
-    --bff-accent: #FBB040;
-    --bff-accent-contrast: #ffffff;
+    --bff-clicked: #e4c77e;
 
-    --bff-you-fill: #FBB040;
+    --bff-accent: #3d000e;
+    --bff-accent-contrast: #f3b826;
+    --bff-accent-2: #f4f4f4;
+
+    --bff-you-fill: #13090b;
     --bff-you-fill-opacity: 0.32;
-    --bff-you-stroke: #FBB040;
-    --bff-match-stroke: #5B92BF;
+    --bff-you-stroke: #3d000e;
+    --bff-match-stroke: #f4f4f4;
     --bff-grid-line: rgba(30, 42, 50, 0.14);
 
     --bff-radius-card: 20px;
@@ -110,11 +119,71 @@ code {
 
 .bff-eyebrow {
     margin: 0 0 6px;
-    font-size: 18px;
+    font-size: 12px;
     font-weight: 600;
+    line-height: 1.0;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--bff-accent);
+}
+
+.bff-eyebrow-2 {
+    margin: 0 0 6px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.0;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--bff-accent);
+}
+
+.header {
+    display: flex;
+
+}
+
+.header-center {
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: center;
+    padding-left: 0.5em;
+
+}
+
+.logo-image {
+    width: 120px;
+    /* height: 100%; */
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    margin-bottom: 1em;
+}
+
+.spaced {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    padding-top: 48px;
+
+    /* Takes up all remaining space between top and buttons */
+}
+
+.bff-sub-2 {
+    margin: 0 0 20px;
+    color: var(--bff-accent);
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.bff-sub-3 {
+    margin: 0 0 20px;
+    color: var(--bff-muted);
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.5;
 }
 
 .bff-title {
@@ -127,12 +196,29 @@ code {
 
 .bff-sub {
     margin: 0 0 20px;
-    color: var(--bff-muted);
-    font-size: 15px;
+    color: var(--bff-accent);
+    font-size: 17px;
     line-height: 1.5;
 }
 
 .bff-card {
+    background: var(--bff-surface);
+    border: 1px solid var(--bff-border);
+    border-radius: var(--bff-radius-card);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 80vh;
+}
+
+.bff-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.bff-card-2 {
     background: var(--bff-surface);
     border: 1px solid var(--bff-border);
     border-radius: var(--bff-radius-card);
@@ -159,7 +245,7 @@ code {
 }
 
 .bff-dot.is-done {
-    background: var(--bff-match-stroke);
+    background: var(--bff-accent-2);
 }
 
 .bff-dot.is-current {
@@ -223,30 +309,44 @@ code {
     appearance: none;
     border: none;
     background: none;
-    color: var(--bff-muted);
+    color: var(--bff-ink);
     font-family: inherit;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
     padding: 8px 0;
+    transition: all 0.1s ease;
 }
 
 .bff-link-btn:hover {
     color: var(--bff-ink);
+    scale: 1.05;
 }
 
 /* ── Question step ─────────────────────────────────────────── */
-
 .bff-q {
     margin: 0 0 18px;
     font-size: 19px;
     font-weight: 700;
+    color: var(--bff-accent);
 }
 
 .bff-options {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     gap: 10px;
+    flex: 1;
+}
+
+.q-opt {
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.bff-opt-icon {
+    width: 48px;
+    height: 48px;
 }
 
 .bff-opt {
@@ -254,11 +354,10 @@ code {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 8px;
-    padding: 16px 10px;
-    border: 1.5px solid var(--bff-border);
+    border: 1px solid var(--bff-border);
     border-radius: 14px;
-    background: var(--bff-surface-sunken);
     color: var(--bff-ink);
     font-family: inherit;
     font-size: 15px;
@@ -266,15 +365,64 @@ code {
     text-align: center;
     cursor: pointer;
     transition: border-color 0.15s ease, background 0.15s ease;
+    padding: 12px 16px;
 }
 
+.bff-opt {
+    position: relative;
+    overflow: hidden;
+    color: #ffffff;
+
+    /* Layout styling (adjust size/padding as needed) */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: border-color 0.3s ease, outline 0.3s ease;
+}
+
+/* Background image & gradient container */
+.bff-opt::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+
+    /* Apply inline background via custom CSS variable */
+    background-image: var(--bg-img);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* Smooth scale transition */
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform;
+    z-index: 1;
+}
+
+/* Hover effect (optional subtle zoom) */
 .bff-opt:hover {
     border-color: var(--bff-accent);
 }
 
+.bff-opt:hover::before {
+    transform: scale(1.05);
+}
+
+/* Clicked / Selected zoom state */
 .bff-opt.is-picked {
-    border-color: var(--bff-accent);
-    background: color-mix(in srgb, var(--bff-accent) 10%, var(--bff-surface));
+    outline: 3px solid #ffffff;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+}
+
+.bff-opt.is-picked::before {
+    transform: scale(1.15);
+    /* Adjust zoom strength here */
+}
+
+/* Keep content above the background image */
+.bff-opt-icon,
+.q-opt {
+    position: relative;
+    z-index: 2;
 }
 
 .bff-icon {
@@ -283,8 +431,12 @@ code {
     color: var(--bff-ink);
 }
 
-.bff-opt.is-picked .bff-icon {
-    color: var(--bff-accent);
+.bff-opt.is-picked .bff-opt-icon {
+    color: var(--bff-surface);
+}
+
+.bff-opt.is-picked .q-opt {
+    color: var(--bff-surface);
 }
 
 /* ── Result step ───────────────────────────────────────────── */
@@ -295,21 +447,25 @@ code {
     gap: 32px;
 }
 
-@media (max-width: 640px) {
-    .bff-result-grid {
-        grid-template-columns: 1fr;
-    }
-}
+
 
 .bff-radar-wrap {
     position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .bff-radar-svg {
     width: 100%;
+    max-width: 100%;
+    /* Was 360px */
     height: auto;
     touch-action: none;
+    overflow: visible;
+    /* Prevents outer text labels from clipping when chart expands */
 }
+
 
 .bff-radar-grid {
     fill: none;
@@ -361,7 +517,7 @@ code {
 .bff-hint {
     margin: 10px 0 0;
     font-size: 12px;
-    color: var(--bff-muted);
+    color: var(--bff-accent);
 }
 
 .bff-legend {
@@ -461,6 +617,7 @@ code {
 .bff-tooltip.is-visible {
     opacity: 1;
 }
+
 .modal-overlay {
     position: fixed;
     inset: 0;
@@ -503,6 +660,7 @@ code {
     flex-shrink: 0;
 }
 
+
 .modal-image {
     width: 100%;
     height: 100%;
@@ -541,7 +699,7 @@ code {
     gap: 12px;
     padding: 16px 24px 24px 24px;
     border-top: 1px solid #f0f0f0;
-    background: #ffffff;
+    background: #f4f4f4;
 }
 
 .modal-btn-secondary {
@@ -554,10 +712,11 @@ code {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s ease;
+    box-sizing: border-box;
 }
 
 .modal-btn-secondary:hover {
-    background-color: #f5f5f5;
+    background-color: #f4f4f4;
     color: #1a1a1a;
     scale: 1.05;
 }
@@ -567,13 +726,14 @@ code {
     align-items: center;
     justify-content: center;
     padding: 10px 20px;
-    background-color:  #FBB040;
-    color: #ffffff;
+    background-color: #f3b826;
+    color: #f4f4f4;
     text-decoration: none;
     border-radius: 20px;
     font-size: 0.9rem;
     font-weight: 600;
     transition: all 0.2s ease;
+    box-sizing: border-box;
 }
 
 .modal-cta:hover {
@@ -582,19 +742,283 @@ code {
 }
 
 /* Responsive adjust for very small phones (< 380px) */
-@media (max-width: 380px) {
+@media (max-width: 480px) {
+    .bff-card {
+        padding: 18px;
+    }
+
     .modal-image-wrap {
-        max-height: 170px;
+        max-height: 280px;
     }
 
     .modal-actions {
         flex-direction: column-reverse;
-        width: 100%;
+        /* Primary CTA on top, Close on bottom */
+        gap: 10px;
+        padding: 16px;
     }
 
     .modal-btn-secondary,
     .modal-cta {
         width: 100%;
         text-align: center;
+        padding: 12px 16px;
+        /* Slightly taller touch targets for mobile */
+    }
+}
+
+/* Card Container */
+.res-card {
+    background: var(--bff-surface);
+    border: 1px solid var(--bff-border);
+    border-radius: var(--bff-radius-card);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.res-header {
+    margin-bottom: 24px;
+}
+
+.res-heading {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* Fluid Layout Grid */
+.res-layout {
+    display: grid;
+    grid-template-columns: 35% 1fr;
+    gap: 32px;
+    align-items: center;
+    /* Vertically center chart against hero card */
+    flex: 1;
+}
+
+/* Chart Pane */
+.res-chart-pane {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.res-chart-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.res-chart-guide {
+    margin: 12px 0 8px;
+    font-size: 0.85rem;
+    color: var(--bff-accent);
+    text-align: center;
+}
+
+.res-chart-key {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.res-key-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.res-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.res-dot--user {
+    background-color: var(--bff-accent);
+}
+
+.res-dot--match {
+    background-color: var(--bff-match-stroke);
+}
+
+/* Product Showcase Pane */
+.res-showcase-pane {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+.res-badge {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--bff-muted-2);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.res-hero-product {
+    display: flex;
+    gap: 24px;
+    background: rgba(0, 0, 0, 0.02);
+    border: 1px solid var(--bff-border);
+    border-radius: 12px;
+    padding: 20px;
+    align-items: stretch;
+    /* Allows .res-product-details to match the image height */
+}
+
+.res-product-media {
+    flex: 0 0 240px;
+    /* Increased from 160px for a significantly bigger hero image */
+    aspect-ratio: 3 / 4;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fbb040;
+}
+
+.res-product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.res-product-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+/* Pushes the button wrapper to the bottom */
+.res-product-details>div:last-child {
+    margin-top: auto;
+}
+
+.res-product-title {
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+.res-product-description {
+    margin: 0;
+    line-height: 1.4;
+    font-size: 1.1rem;
+    color: var(--bff-accent);
+}
+
+/* Alternatives / Runners Up */
+.res-alternatives {
+    margin-top: 8px;
+}
+
+.res-alternatives-title {
+    margin: 0 0 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--bff-muted, #666);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.res-alternatives-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.res-alt-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--bff-border);
+    font-size: 14px;
+}
+
+.res-alt-item:last-child {
+    border-bottom: none;
+}
+
+.res-alt-name {
+    font-weight: 500;
+}
+
+.res-alt-action {
+    appearance: none;
+    border: none;
+    background: none;
+    color: var(--bff-accent, #0070f3);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+}
+
+.res-footer-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Responsiveness Adjustments */
+
+/* Tablet / Medium Desktop (Narrow Window) */
+@media (max-width: 900px) {
+    .res-layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .res-hero-product {
+        flex-direction: row;
+    }
+
+    .res-product-media {
+        flex: 0 0 140px;
+    }
+}
+
+/* Mobile Screens */
+@media (max-width: 540px) {
+    .res-card {
+        padding: 16px;
+    }
+
+    .bff-options {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 10px;
+        flex: 1;
+    }
+
+    .res-hero-product {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .res-product-media {
+        width: 100%;
+        max-width: 220px;
+        flex: none;
+    }
+
+    .res-product-details {
+        align-items: center;
     }
 }

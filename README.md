@@ -1,33 +1,31 @@
-# Bikini Fit Finder — React/TypeScript
+# Kislap Fit Finder
 
-A quiz widget that maps a visitor's answers to a 5-axis preference vector and
-recommends the closest-matching product, with a draggable radar chart for
-fine-tuning the result. Rebuilt from a vanilla-JS/DOM-string version into
-typed, composable React components.
+A React quiz that maps a visitor's answers to a five-axis preference vector,
+then recommends the closest matching Kislap piece. The result includes a
+draggable radar chart for fine-tuning the match.
 
 ## File structure
 
 ```
-types.ts                     Shared types: Axis, Vector, Question, Product, config bundle
-quizConfig.ts                ← Edit this to change axes / questions / catalog
-icons.tsx                    Icon set as React components, keyed by name
-utils/vectorMath.ts          Pure functions: scoring, distance, polygon math (no DOM/React)
+types.ts                     Shared JSDoc types
+utils/quizConfig.js          Edit this to change axes, questions, or catalog
+icons.js                     Icon set as React components, keyed by name
+utils/vectorMath.js          Pure scoring and radar-chart geometry
 components/
-  ProgressDots.tsx           Step progress indicator
-  IntroStep.tsx              Welcome screen
-  QuestionStep.tsx           One quiz question + its options
-  RadarChart.tsx             Draggable SVG radar chart (controlled component)
-  ResultStep.tsx             Best match + runner-ups, wraps RadarChart
-BikiniFitFinder.tsx           Top-level component — owns quiz state, switches steps
-fit-finder.css                All styling, exposed as CSS custom properties
-example/App.tsx               Minimal usage + retheme example
+  ProgressDots.js            Step progress indicator
+  IntroStep.js               Welcome screen
+  QuestionStep.js            One quiz question and its options
+  RadarChart.js              Draggable SVG radar chart
+  ResultStep.js              Best match and alternatives
+  BikiniFitFinder.js         Top-level quiz state
+index.css                    Application styles
 ```
 
 ## Usage
 
 ```tsx
-import { BikiniFitFinder } from './BikiniFitFinder';
-import './fit-finder.css';
+import { BikiniFitFinder } from './components/BikiniFitFinder';
+import './index.css';
 
 <BikiniFitFinder />
 ```
@@ -40,7 +38,7 @@ Pass a custom `config` to point the same component at a different catalog:
 
 ## Adding a question
 
-Open `quizConfig.ts` and append to `QUESTIONS`:
+Open `src/utils/quizConfig.js` and append to `QUESTIONS`:
 
 ```ts
 {
@@ -69,9 +67,8 @@ has no hardcoded axis count or names.
 ## Styling
 
 Everything visual is driven by CSS classes (`bff-*`) and custom properties
-defined on `.bff-root` in `fit-finder.css`. To retheme, override the
-variables on your own wrapper element (see `example/App.tsx`) rather than
-editing component code:
+defined on `.bff-root` in `src/index.css`. To retheme, override the variables
+on your own wrapper rather than editing component code:
 
 ```css
 .my-wrapper {
@@ -80,17 +77,3 @@ editing component code:
   --bff-radius-card: 8px;
 }
 ```
-
-## Notes on the port from the original script
-
-- The original mutated the DOM directly (`ROOT.innerHTML = ...`, manual
-  `addEventListener` wiring) and rendered SVG by building `<svg>`/`<circle>`
-  elements with `document.createElementNS`. Everything now goes through
-  JSX/React state — no `innerHTML`, no manual event teardown.
-- Drag handling on the radar chart uses React's `onPointerDown/Move/Up` with
-  `setPointerCapture`, same technique as the original, just expressed as
-  React event handlers instead of raw DOM listeners.
-- The tooltip is now local component state (`useState`) instead of a
-  detached DOM node that got manually positioned.
-- Icons moved from an HTML-string lookup table to small SVG React
-  components, looked up by name via `<Icon name="..." />`.

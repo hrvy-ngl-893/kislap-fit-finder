@@ -7,11 +7,7 @@ export default function App() {
     return (
         <div
             style={{
-                '--bff-accent': '#0d6e6a',
-                '--bff-you-stroke': '#0d6e6a',
-                '--bff-you-fill': '#12a39c',
-                '--bff-match-stroke': '#e8432f',
-                padding: '40px 20px',
+                padding: '20px 20px',
             }}
         >
             <BikiniFitFinder
@@ -32,7 +28,9 @@ export default function App() {
 
 /**
  * Modal to display details of the selected bikini product/design.
- */export function ProductModal({ product, onClose }) {
+ */
+
+export function ProductModal({ product, onClose }) {
     if (!product) return null;
 
     const descriptionText = product.blurb || product.description;
@@ -64,7 +62,7 @@ export default function App() {
                 </div>
 
                 <div className="modal-actions">
-                    <button type="button" className="modal-btn-secondary" onClick={onClose}>
+                    <button type="button" className="bff-link-btn " onClick={onClose}>
                         Close
                     </button>
 
